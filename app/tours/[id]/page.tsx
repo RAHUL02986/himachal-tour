@@ -55,6 +55,11 @@ const tourDetails = {
     ]
   }
 };
+export function generateStaticParams() {
+  return Object.keys(tourDetails).map((id) => ({
+    id,
+  }));
+}
 
 export default function TourDetailPage({ params }: { params: { id: string } }) {
   const tour = tourDetails[params.id as keyof typeof tourDetails];
